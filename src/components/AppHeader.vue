@@ -1,6 +1,14 @@
 <template>
   <div class=" hero">
-    <h3>Header / hero</h3>
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <div>
+            <h1 class="text-center">Landing Page</h1>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -18,5 +26,9 @@ export default {
 .hero {
   height: 60vh;
   background: #ccc;
+  background-image: url("https://picsum.photos/seed/picsum/1000/1000");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
 }
 </style>

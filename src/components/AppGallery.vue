@@ -7,95 +7,49 @@
     </div>
     <div class="row">
       <div class="col-sm">
-        <div class="card m-auto" style="width: 18rem;">
-          <img src="" class="card-img-top" alt="..." />
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">
-              Some quick example text to build on the card title and make up the
-              bulk of the card's content.
-            </p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-          </div>
-        </div>
+        <photo-card />
       </div>
       <div class="col-sm">
-        <div class="card m-auto" style="width: 18rem;">
-          <img src="" class="card-img-top" alt="..." />
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">
-              Some quick example text to build on the card title and make up the
-              bulk of the card's content.
-            </p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-          </div>
-        </div>
+        <photo-card />
       </div>
       <div class="col-sm">
-        <div class="card m-auto" style="width: 18rem;">
-          <img src="" class="card-img-top" alt="..." />
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">
-              Some quick example text to build on the card title and make up the
-              bulk of the card's content.
-            </p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-          </div>
-        </div>
+        <photo-card />
+      </div>
+      <div class="col-sm">
+        <photo-card />
       </div>
     </div>
-
-    <div class="row mt-4">
-      <div class="col-sm">
-        <div class="card m-auto" style="width: 18rem;">
-          <img src="" class="card-img-top" alt="..." />
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">
-              Some quick example text to build on the card title and make up the
-              bulk of the card's content.
-            </p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm">
-        <div class="card m-auto" style="width: 18rem;">
-          <img src="" class="card-img-top" alt="..." />
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">
-              Some quick example text to build on the card title and make up the
-              bulk of the card's content.
-            </p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm">
-        <div class="card m-auto" style="width: 18rem;">
-          <img src="" class="card-img-top" alt="..." />
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">
-              Some quick example text to build on the card title and make up the
-              bulk of the card's content.
-            </p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-          </div>
-        </div>
-      </div>
-    </div>
+    <modal />
   </div>
 </template>
 
 <script>
+import API_KEY from "../api/config";
+import Modal from "./Modal";
+import PhotoCard from "./PhotoCard";
 export default {
-  name: "AppGallery",
+  components: {
+    Modal,
+    PhotoCard,
+  },
+  data() {
+    return {
+      key: API_KEY.api_key,
+    };
+  },
+  computed: {
+    allPhotos() {
+      return this.$store.getter["getPhotos"];
+    },
+  },
 };
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped></style>
+<style scoped>
+.card-body {
+  /* display: none; */
+}
+/* .card:hover .card-body {
+  display: block;
+} */
+</style>

@@ -18,9 +18,7 @@
         class="collapse navbar-collapse d-flex justify-content-end "
         id="navbarColor01"
       >
-        <form
-          class="form-inline w-100 my-2 my-lg-0 d-flex justify-content-center"
-        >
+        <form class="form-inline w-100 my-2 my-lg-0 d-flex justify-content-end">
           <input
             class="form-control w-50 mr-sm-2"
             type="text"

@@ -5,21 +5,14 @@
         <h3>Popular Photos</h3>
       </div>
     </div>
-    <div class="row">
-      <div v-for="photo in photos" :key="photo.id" class="col-sm">
-        <!-- <photo-card :image="photo.src.medium" /> -->
-        <div
-          class="card m-auto w-100"
-          data-toggle="modal"
-          data-target="#photoModal"
-        >
-          <img :src="photo.src.medium" class="card-img-top w-100" alt="..." />
-          <div class="card-body">
-            <h3>Photographer</h3>
-            <h5 class="card-title artist-name">Photo Title:</h5>
-          </div>
-        </div>
-      </div>
+    <div id="photos">
+      <img
+        v-for="photo in photos"
+        :key="photo.id"
+        :src="photo.src.medium"
+        :alt="photo.photographer"
+      />
+      <!-- <photo-card :image="photo.src.medium" /> -->
     </div>
     <modal />
   </div>
@@ -43,8 +36,8 @@ export default {
       return this.$store.getters["getPhotos"];
     },
   },
-  async created() {
-    const resp = await this.$store.dispatch("fetchPhotos", "fish");
+  async mounted() {
+    const resp = await this.$store.dispatch("fetchPhotos", "dogs");
     console.log(resp);
     this.allPhotos = resp;
     console.log("gallery Comp: ", this.allPhotos);
@@ -53,10 +46,50 @@ export default {
 </script>
 
 <style scoped>
-.card-body {
-  /* display: none; */
+#photos {
+  /* Prevent vertical gaps */
+  line-height: 0;
+  -webkit-column-count: 4;
+  -webkit-column-gap: 0px;
+  -moz-column-count: 4;
+  -moz-column-gap: 0px;
+  column-count: 3 !important;
+  column-gap: 10px;
 }
-/* .card:hover .card-body {
-  display: block;
-} */
+
+#photos img {
+  /* Just in case there are inline attributes */
+  width: 100% !important;
+  height: auto !important;
+  margin: 5px;
+}
+
+@media (max-width: 1200px) {
+  #photos {
+    -moz-column-count: 4;
+    -webkit-column-count: 4;
+    column-count: 4;
+  }
+}
+@media (max-width: 1000px) {
+  #photos {
+    -moz-column-count: 3;
+    -webkit-column-count: 3;
+    column-count: 3;
+  }
+}
+@media (max-width: 800px) {
+  #photos {
+    -moz-column-count: 2;
+    -webkit-column-count: 2;
+    column-count: 2;
+  }
+}
+@media (max-width: 400px) {
+  #photos {
+    -moz-column-count: 1;
+    -webkit-column-count: 1;
+    column-count: 1;
+  }
+}
 </style>

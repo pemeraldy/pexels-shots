@@ -1,29 +1,33 @@
 <template>
-  <div class="container mt-4">
+  <div class="container photo-container mt-4">
     <div class="row my-3">
       <div class="col-12 text-center ">
         <h3>Popular Photos</h3>
       </div>
     </div>
     <div id="photos">
-      <img
-        v-for="photo in photos"
-        :key="photo.id"
-        :src="photo.src.medium"
-        :alt="photo.photographer"
-      />
-      <!-- <photo-card :image="photo.src.medium" /> -->
+      <span>
+        <img
+          @click="$refs.modalPhoto.showModal(photo)"
+          class="thumbnail"
+          v-for="photo in photos"
+          :key="photo.id"
+          :src="photo.src.medium"
+          :alt="photo.photographer"
+        />
+      </span>
     </div>
-    <modal />
+    <main-modal ref="modalPhoto" />
   </div>
 </template>
 
 <script>
-import Modal from "./Modal";
+import MainModal from "./MainModal";
+
 // import PhotoCard from "./PhotoCard";
 export default {
   components: {
-    Modal,
+    MainModal,
     // PhotoCard,
   },
   data() {
@@ -37,7 +41,7 @@ export default {
     },
   },
   async mounted() {
-    const resp = await this.$store.dispatch("fetchPhotos", "dogs");
+    const resp = await this.$store.dispatch("fetchPhotos", "cats");
     console.log(resp);
     this.allPhotos = resp;
     console.log("gallery Comp: ", this.allPhotos);
@@ -61,7 +65,12 @@ export default {
   /* Just in case there are inline attributes */
   width: 100% !important;
   height: auto !important;
+  border-radius: 4px;
   margin: 5px;
+  transition: all 0.19s ease-in;
+}
+#photos img:hover {
+  transform: scale(1.03);
 }
 
 @media (max-width: 1200px) {

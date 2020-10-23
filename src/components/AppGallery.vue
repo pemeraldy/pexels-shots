@@ -1,17 +1,20 @@
 <template>
-  <div class="container mt-4">
+  <div class="container photo-container mt-4">
     <div class="row my-3">
       <div class="col-12 text-center ">
         <h3>Popular Photos</h3>
       </div>
     </div>
     <div id="photos">
-      <img
-        v-for="photo in photos"
-        :key="photo.id"
-        :src="photo.src.medium"
-        :alt="photo.photographer"
-      />
+      <span>
+        <img
+          class="thumbnail"
+          v-for="photo in photos"
+          :key="photo.id"
+          :src="photo.src.medium"
+          :alt="photo.photographer"
+        />
+      </span>
       <!-- <photo-card :image="photo.src.medium" /> -->
     </div>
     <modal />
@@ -61,7 +64,12 @@ export default {
   /* Just in case there are inline attributes */
   width: 100% !important;
   height: auto !important;
+  border-radius: 4px;
   margin: 5px;
+  transition: all 0.19s ease-in;
+}
+#photos img:hover {
+  transform: scale(1.03);
 }
 
 @media (max-width: 1200px) {

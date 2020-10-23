@@ -16,7 +16,7 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .hero {
-  height: 60vh;
+  height: 40vh;
   background: #ccc;
   background-image: url("https://picsum.photos/seed/picsum/1000/1000");
   background-size: cover;

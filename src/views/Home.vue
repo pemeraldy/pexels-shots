@@ -1,7 +1,7 @@
 <template>
   <div class="home pb-4">
     <app-header />
-    <app-gallery :photos="allPhotos" />
+    <app-gallery />
   </div>
 </template>
 
@@ -15,22 +15,8 @@ export default {
     AppGallery,
   },
   data() {
-    return {
-      photos: null,
-    };
+    return {};
   },
-  methods: {
-    async fetchPhotos() {
-      this.$store.dispatch("fetchPhotos", "animal");
-    },
-  },
-  computed: {
-    allPhotos() {
-      return this.$store.getters["getPhotos"];
-    },
-  },
-  mounted() {
-    this.fetchPhotos();
-  },
+  methods: {},
 };
 </script>

@@ -19,8 +19,8 @@ export default new Vuex.Store({
         const resp = await Api(query);
         console.log(resp)
         const photos = await resp.photos
-        
         commit('SET_PHOTOS', photos)
+        // return photos
       } catch (error) {
         console.log(error)
       }

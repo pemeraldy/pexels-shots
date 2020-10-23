@@ -17,27 +17,15 @@
       <div
         class="collapse navbar-collapse d-flex justify-content-end "
         id="navbarColor01"
-      >
-        <form class="form-inline w-100 my-2 my-lg-0 d-flex justify-content-end">
-          <input
-            class="form-control w-50 mr-sm-2"
-            type="text"
-            placeholder="Search"
-          />
-          <button class="btn btn-secondary my-2 my-sm-0" type="submit">
-            Search
-          </button>
-        </form>
-      </div>
+      ></div>
     </nav>
   </div>
 </template>
 
 <script>
 export default {
-  name: "HelloWorld",
-  props: {
-    msg: String,
+  data() {
+    return {};
   },
 };
 </script>

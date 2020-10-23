@@ -15,7 +15,7 @@
         </div>
         <div class="modal-body">
           <img src="" alt="photo modal" />
-          <p>Modal body text goes here.</p>
+          <h1>Load an Image here</h1>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-primary">Save changes</button>

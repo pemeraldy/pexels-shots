@@ -1,22 +1,14 @@
 <template>
-  <div class=" hero">
-    <div class="container">
-      <div class="row">
-        <div class="col-12">
-          <div>
-            <h1 class="text-center">Landing Page</h1>
-          </div>
-        </div>
-      </div>
-    </div>
+  <div class=" hero d-flex justify-content-center align-items-center">
+    <search-form />
   </div>
 </template>
 
 <script>
+import SearchForm from "./SearchForm";
 export default {
-  name: "AppHeader",
-  props: {
-    msg: String,
+  components: {
+    SearchForm,
   },
 };
 </script>

@@ -1,6 +1,6 @@
 <template>
   <div class="card m-auto w-100" data-toggle="modal" data-target="#photoModal">
-    <img src="https://picsum.photos/1000/1000" class="card-img-top" alt="..." />
+    <img :src="image" class="card-img-top" alt="..." />
     <div class="card-body">
       <h3>Photographer</h3>
       <h5 class="card-title artist-name">Photo Title:</h5>
@@ -9,7 +9,12 @@
 </template>
 
 <script>
-export default {};
+export default {
+  props: ["image"],
+  mounted() {
+    console.log(this.image);
+  },
+};
 </script>
 
 <style></style>

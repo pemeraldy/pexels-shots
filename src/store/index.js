@@ -16,7 +16,7 @@ export default new Vuex.Store({
   actions: {
     async fetchPhotos({commit},query){
       try {
-        const resp = await Api(query);
+        const resp = await Api.fetchPhotos(query);
         console.log(resp)
         const photos = await resp.photos
         commit('SET_PHOTOS', photos)
@@ -25,7 +25,6 @@ export default new Vuex.Store({
         console.log(error)
       }
     },
-
   },
   getters:{
     getPhotos:(state) => state.photos

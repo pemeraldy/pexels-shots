@@ -8,6 +8,7 @@
     <div id="photos">
       <span>
         <img
+          @click="$refs.modalPhoto.showModal(photo)"
           class="thumbnail"
           v-for="photo in photos"
           :key="photo.id"
@@ -15,18 +16,18 @@
           :alt="photo.photographer"
         />
       </span>
-      <!-- <photo-card :image="photo.src.medium" /> -->
     </div>
-    <modal />
+    <main-modal ref="modalPhoto" />
   </div>
 </template>
 
 <script>
-import Modal from "./Modal";
+import MainModal from "./MainModal";
+
 // import PhotoCard from "./PhotoCard";
 export default {
   components: {
-    Modal,
+    MainModal,
     // PhotoCard,
   },
   data() {
@@ -40,7 +41,7 @@ export default {
     },
   },
   async mounted() {
-    const resp = await this.$store.dispatch("fetchPhotos", "dogs");
+    const resp = await this.$store.dispatch("fetchPhotos", "cats");
     console.log(resp);
     this.allPhotos = resp;
     console.log("gallery Comp: ", this.allPhotos);

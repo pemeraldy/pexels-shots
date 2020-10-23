@@ -12,4 +12,8 @@ export default {
   },
 };
 </script>
-<style></style>
+<style>
+* {
+  font-family: "Nunito", sans-serif;
+}
+</style>

@@ -8,7 +8,7 @@ export default {
             .then(photos => photos)
             return photos    
     },
-    showPhoto(){
-        return client.photos.show({ id: 2014422 }).then(photo => photo.src.medium)
+    showPhoto(id){
+        return client.photos.show({ id: id }).then(photo => photo.src.medium)
     }
 }

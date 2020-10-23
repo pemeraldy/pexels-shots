@@ -1,18 +1,9 @@
 <template>
   <div class="navigation">
     <nav class="navbar d-flex navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" href="#">Navbar</a>
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-toggle="collapse"
-        data-target="#navbarColor01"
-        aria-controls="navbarColor01"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
+      <a class=" app-name navbar-brand d-block text-center  w-100" href="#"
+        >YoPix</a
       >
-        <span class="navbar-toggler-icon"></span>
-      </button>
 
       <div
         class="collapse navbar-collapse d-flex justify-content-end "
@@ -32,6 +23,10 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.app-name {
+  font-family: "Yesteryear", cursive !important;
+  font-size: 52px;
+}
 h3 {
   margin: 40px 0 0;
 }
@@ -45,5 +40,11 @@ li {
 }
 a {
   color: #42b983;
+}
+.navigation {
+  height: 100px !important;
+}
+.navbar {
+  height: 100%;
 }
 </style>

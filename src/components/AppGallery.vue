@@ -24,11 +24,9 @@
 <script>
 import MainModal from "./MainModal";
 
-// import PhotoCard from "./PhotoCard";
 export default {
   components: {
     MainModal,
-    // PhotoCard,
   },
   data() {
     return {
@@ -41,8 +39,8 @@ export default {
     },
   },
   async mounted() {
-    const resp = await this.$store.dispatch("fetchPhotos", "cats");
-    console.log(resp);
+    const resp = await this.$store.dispatch("fetchPhotos", "happy");
+    console.log("Dev purpose", resp);
     this.allPhotos = resp;
     console.log("gallery Comp: ", this.allPhotos);
   },

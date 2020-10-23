@@ -18,9 +18,9 @@ export default {
 .hero {
   height: 40vh;
   background: #ccc;
-  background-image: url("https://picsum.photos/seed/picsum/1000/1000");
+  background-image: url("https://images.pexels.com/photos/1858175/pexels-photo-1858175.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200");
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: center center;
+  background-position: center top;
 }
 </style>

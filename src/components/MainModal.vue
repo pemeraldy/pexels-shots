@@ -1,25 +1,35 @@
 <template>
-  <!-- The Modal -->
-  <div
-    id="myModal"
-    v-if="visible"
-    class="main-modal d-flex justify-content-center align-items-center"
-  >
-    <!-- Modal content -->
-    <div class="main-modal__content">
-      <div class="modal-header">
-        <span @click.stop="hideModal" class="close">&times;</span>
-      </div>
-      <div class="main-modal__body">
-        <img :src="modalImageDetails.src.large" alt="" />
-      </div>
-      <div class="main-modal__footer">
-        <div class="artist-name">{{ modalImageDetails.photographer }}</div>
-        <div class="btn btn-danger">&times;</div>
-        <div class="btn btn-primary">Download</div>
+  <transition name="fadeIn">
+    <!-- The Modal bg -->
+    <div
+      id="myModal"
+      v-if="visible"
+      class="main-modal d-flex justify-content-center align-items-center"
+    >
+      <!-- Modal content -->
+      <div class="main-modal__content">
+        <div class="modal-header">
+          <span class="app-name">YoPix</span>
+          <span @click.stop="hideModal" class="close">&times;</span>
+        </div>
+        <div class="main-modal__body">
+          <img :src="modalImageDetails.src.large" alt="" />
+        </div>
+        <div class="main-modal__footer">
+          <div class="artist-name">
+            By
+            <span class="font-weight-bold">{{
+              modalImageDetails.photographer
+            }}</span>
+          </div>
+          <div @click.stop="hideModal" class="btn btn-danger ml-auto mr-3">
+            Close
+          </div>
+          <div class="btn btn-primary">Download</div>
+        </div>
       </div>
     </div>
-  </div>
+  </transition>
 </template>
 
 <script>
@@ -49,6 +59,10 @@ export default {
 </script>
 
 <style scoped>
+.app-name {
+  font-family: "Yesteryear", cursive !important;
+  font-size: 22px;
+}
 .main-modal {
   position: fixed;
   z-index: 1;
@@ -60,13 +74,15 @@ export default {
   /* background-color: rgb(0, 0, 0); */
   background-color: rgba(0, 0, 0, 0.486);
   overflow: hidden;
+  transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
 }
 
 .main-modal__content {
   background-color: #fefefe;
   margin: 15% auto;
   border: 1px solid #888;
-  width: 80%;
+  width: 60%;
+  max-height: 750px;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -92,21 +108,47 @@ export default {
 .main-modal__body {
   width: 100%;
   height: 70%;
+  max-width: max-content;
   overflow: hidden;
   align-items: center;
   display: flex;
   justify-content: center;
 }
 
-.main-modal__image img {
+.main-modal__body img {
   width: 100%;
 }
 .main-modal__footer {
   width: 100%;
-  background: #02b875;
+  /* background: #02b875; */
   height: 5rem;
-  color: white;
+  padding: 2%;
+  color: rgb(42, 42, 42);
   display: flex;
   align-items: center;
+}
+.btn.btn-danger,
+.btn {
+  background: transparent;
+  color: rgb(42, 42, 42);
+}
+.fadeIn-enter-active,
+.fadeIn-leave-active {
+  transition: opacity 0.5s;
+}
+.fadeIn-enter, .fadeIn-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
+}
+
+/* Responsiveness */
+/**xsmall: */
+@media only screen and (max-width: 479px) {
+  .main-modal__content {
+    width: 100vw;
+    height: 100vh;
+  }
+  .main-modal__body {
+    height: 100%;
+  }
 }
 </style>

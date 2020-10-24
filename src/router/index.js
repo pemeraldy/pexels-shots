@@ -12,6 +12,7 @@ const routes = [
   {
     path: '/search',
     name: 'Search',
+    props: true,
     component: () => import('../views/SearchVue.vue')
   },
   

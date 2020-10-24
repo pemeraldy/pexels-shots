@@ -25,7 +25,7 @@
           <div @click.stop="hideModal" class="btn btn-danger ml-auto mr-3">
             Close
           </div>
-          <div class="btn btn-primary">Download</div>
+          <button class="btn btn-primary">Download</button>
         </div>
       </div>
     </div>

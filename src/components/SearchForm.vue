@@ -40,7 +40,7 @@ export default {
 .search-form.form-control {
   padding: 25px;
   width: 100%;
-  background: rgba(0, 0, 0, 0.3) !important;
+  background: rgba(255, 255, 255, 0.3) !important;
   transition: background 0.34s ease-in;
   color: #e7e7e79a !important;
 }

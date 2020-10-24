@@ -13,10 +13,10 @@ export default {
         return client.photos.show({ id: id }).then(photo => photo.src.medium)
     },
     async fetchPhotosPerPage(){
-        const resp = await fetch(  "https://api.pexels.com/v1/search?query=nature&per_page=1",{
+        const resp = await fetch(  "https://api.pexels.com/v1/search?query=nature&per_page=20",{
             Authorizarion: API_KEY
         } )
-        const result = resp.json()
+        const result = await resp.json()
     
         return result
     }

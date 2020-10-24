@@ -71,7 +71,6 @@ export default {
   bottom: 0;
   width: 100%;
   height: 100vh;
-  /* background-color: rgb(0, 0, 0); */
   background-color: rgba(0, 0, 0, 0.486);
   overflow: hidden;
   transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
@@ -120,7 +119,6 @@ export default {
 }
 .main-modal__footer {
   width: 100%;
-  /* background: #02b875; */
   height: 5rem;
   padding: 2%;
   color: rgb(42, 42, 42);

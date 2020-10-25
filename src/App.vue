@@ -10,6 +10,9 @@ export default {
   components: {
     AppNav,
   },
+  // async mounted() {
+  //   await this.$store.dispatch("fetchPhotosPerPag");
+  // },
 };
 </script>
 <style>

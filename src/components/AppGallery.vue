@@ -3,6 +3,7 @@
     <div class="row my-3">
       <div class="col-12 text-center ">
         <h3>Popular Photos</h3>
+        <!-- <h3 v-else>{{ searchText }} Photos</h3> -->
       </div>
     </div>
     <div id="photos">
@@ -37,18 +38,20 @@ export default {
     photos() {
       return this.$store.getters["getPhotos"];
     },
+    searchText() {
+      return this.$store.getters["getSearch"];
+    },
   },
   async mounted() {
-    const resp = await this.$store.dispatch("fetchPhotos", "happy");
-    console.log("Dev purpose", resp);
+    const resp = await this.$store.dispatch("fetchPhotos", "office");
     this.allPhotos = resp;
-    console.log("gallery Comp: ", this.allPhotos);
   },
 };
 </script>
 
 <style scoped>
 #photos {
+  min-height: 50vh;
   /* Prevent vertical gaps */
   line-height: 0;
   -webkit-column-count: 4;

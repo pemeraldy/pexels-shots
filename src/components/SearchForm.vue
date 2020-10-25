@@ -1,7 +1,7 @@
 <template>
   <form @submit.prevent="searchPhotos" class="form-inline search-form-wrap">
     <input
-      v-model="queries"
+      v-model="searchText"
       class="form-control search-form w-100 mr-sm-2"
       type="text"
       placeholder="Search"
@@ -12,7 +12,9 @@
     >
       Search
     </button>
-    <span class="suggestions">Place, People, Office, Sport...</span>
+    <span class="suggestions"
+      >Place, People, Office, Sport... {{ searchText }}</span
+    >
   </form>
 </template>
 
@@ -20,14 +22,41 @@
 export default {
   data() {
     return {
-      queries: "people",
+      pageNumber: null,
     };
+  },
+  computed: {
+    searchText: {
+      get() {
+        return this.$store.getters[`getSearch`];
+      },
+      set(value) {
+        return this.$store.commit("SET_SEARCH", value);
+      },
+    },
   },
   methods: {
     async searchPhotos() {
-      console.log(this.queries);
-      await this.$store.dispatch("fetchPhotos", this.queries);
+      if (this.searchText === "") return;
+      this.$store.commit("SET_CURRENT_PAGE", 1);
+      this.$router.push({
+        name: "search",
+        query: {
+          ...this.$route.query,
+          term: this.searchText,
+          page: 1,
+          t: new Date().getTime(),
+        },
+      });
+      this.$store.dispatch("fetchPhotosPerPag", {
+        query: this.searchText,
+        page: this.pageNumber,
+      });
     },
+  },
+  mounted() {
+    this.pageNumber = this.$store.getters["getCurrentPage"];
+    console.log(this.$store.getters["getCurrentPage"]);
   },
 };
 </script>

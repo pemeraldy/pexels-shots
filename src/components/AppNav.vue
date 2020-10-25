@@ -1,8 +1,10 @@
 <template>
   <div class="navigation">
     <nav class="navbar d-flex navbar-expand-lg navbar-light bg-light">
-      <a class=" app-name navbar-brand d-block text-center  w-100" href="#"
-        >YoPix</a
+      <router-link
+        class=" app-name navbar-brand d-block text-center  w-100"
+        to="/"
+        >YoPix</router-link
       >
 
       <div

@@ -107,11 +107,13 @@ export default {
 .main-modal__body {
   width: 100%;
   height: 70%;
+  min-height: 500px;
   max-width: max-content;
   overflow: hidden;
   align-items: center;
   display: flex;
   justify-content: center;
+  transition: all 0.34s ease;
 }
 
 .main-modal__body img {
@@ -144,6 +146,7 @@ export default {
   .main-modal__content {
     width: 100vw;
     height: 100vh;
+    min-height: 60vh;
   }
   .main-modal__body {
     height: 100%;

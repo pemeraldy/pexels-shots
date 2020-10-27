@@ -14,7 +14,7 @@
         <span class="total-pages ml-1">{{ searchTotal }}</span>
       </div>
       <div
-        v-if="currentPage > 1"
+        v-if="currentPage > searchTotal"
         @click="next"
         class="next-btn btn btn-primary "
       >

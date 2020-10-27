@@ -13,7 +13,13 @@
         /
         <span class="total-pages ml-1">{{ searchTotal }}</span>
       </div>
-      <div @click="next" class="next-btn btn btn-primary ">Next</div>
+      <div
+        v-if="currentPage > 1"
+        @click="next"
+        class="next-btn btn btn-primary "
+      >
+        Next
+      </div>
     </div>
   </div>
 </template>
@@ -25,7 +31,7 @@ export default {
       return this.$store.getters["getSearch"];
     },
     searchTotal() {
-      return Math.floor(this.$store.getters["getTotalPhotos"] / 20);
+      return Math.ceil(this.$store.getters["getTotalPhotos"] / 20);
     },
     currentPage: {
       get() {
@@ -71,11 +77,17 @@ export default {
       });
     },
   },
-  mounted() {
-    if (this.$store.getters["getSearch"] === "") {
-      this.$router.push("/");
-    }
-  },
+  //   watch: {
+  //     $route: {
+  //       handler() {
+  //         console.log(this.$route);
+  //         this.$store.dispatch("fetchPhotosPerPag", {
+  //           query: this.$route.query.term,
+  //           page: this.$route.query.page,
+  //         });
+  //       },
+  //     },
+  //   },
 };
 </script>
 

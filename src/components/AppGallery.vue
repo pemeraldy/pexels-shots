@@ -95,11 +95,12 @@ export default {
     column-count: 2;
   }
 }
-@media (max-width: 400px) {
+@media only screen and (max-width: 400px) {
   #photos {
     -moz-column-count: 1;
     -webkit-column-count: 1;
     column-count: 1;
+    margin-left: -10px;
   }
 }
 </style>

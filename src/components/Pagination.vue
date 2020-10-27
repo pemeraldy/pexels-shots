@@ -1,6 +1,6 @@
 <template>
   <div class=" container my-2 d-flex justify-content-between">
-    <div class="pagination   d-flex w-100 justify-content-end">
+    <div class="pagination   d-flex w-100 justify-content-end ">
       <div
         v-if="currentPage > 1"
         @click="prev"
@@ -99,5 +99,10 @@ export default {
 .next-btn {
   width: 100px;
   border-radius: 4px;
+}
+@media only screen and (max-width: 479px) {
+  .pagination {
+    justify-content: space-evenly !important;
+  }
 }
 </style>
